@@ -50,6 +50,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
         if searchField.text?.characters.count > 0 {
             let searchKey = searchField.text!
             self.mapView.removeAnnotations(annotationsArray)
+            //set numberOfLoadedPhotos to 0 in order it was capable to count properly
+            numberOfLoadedPhotos = 0
             getFlickrPhotosForSearchKey(searchKey)
             progressViewManager.show()
         }
@@ -66,17 +68,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         let pin = annotation as! PhotoAnnotation
-        let identifier = "Pin"
+        let identifier = "MyPin"
         var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
         if pinView == nil{
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            pinView?.canShowCallout = true
+            pinView!.canShowCallout = true
         } else{
-            pinView?.annotation = annotation
+            pinView!.annotation = annotation
         }
-        pinView!.detailCalloutAccessoryView = UIImageView(image: pin.image)
-        let btn = UIButton(type: .DetailDisclosure)
-        pinView!.rightCalloutAccessoryView = btn
+        dispatch_async(dispatch_get_main_queue(), {
+            pinView!.image = UIImage(named: "annotation")!
+            pinView!.detailCalloutAccessoryView = UIImageView(image: pin.image)
+            let btn = UIButton(type: .DetailDisclosure)
+            pinView!.rightCalloutAccessoryView = btn
+            })
         return pinView
     }
     
@@ -207,11 +212,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
                         print("no location")
                     }
                     dispatch_async(dispatch_get_main_queue(), {
+                        //Create Map Annotation, place it on a map and add to array in order to delet it if new search will be approached
                         let annotation = PhotoAnnotation(photoDict: photoDictionary, title: photoDictionary["title"] as! String, locationName: self.getPlaceName(location),discipline: "Sculpture", coordinate: CLLocationCoordinate2D(latitude: Double(location["latitude"] as! String)!, longitude: Double(location["longitude"] as! String)!), image: UIImage(data: photoData)!)
                         self.annotationsArray.append(annotation)
                         self.mapView.addAnnotation(annotation)
+                        // Count how many photos are loaded in order to hide progress bar when all photos loads
                         self.numberOfLoadedPhotos += 1
-                        if self.numberOfLoadedPhotos == self.numberOfPhotos {
+                        if self.numberOfLoadedPhotos == self.photoArray.count {
                             progressViewManager.hide()
                         }
                     })

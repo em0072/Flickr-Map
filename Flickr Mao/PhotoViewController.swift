@@ -9,10 +9,11 @@
 import UIKit
 import FlickrKit
 
-class PhotoViewController: UIViewController {
+class PhotoViewController: UIViewController, UIScrollViewDelegate {
     
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     //MARK: Properties
     var photo = UIImage()
@@ -23,10 +24,16 @@ class PhotoViewController: UIViewController {
     //MARK: View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.scrollView.minimumZoomScale = 1.0
+        self.scrollView.maximumZoomScale = 5.0
         imageView.image = photo
         getImage(photoDictionary)
     }
     
+    //MARK: ScrollView Delegates
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return self.imageView
+    }
     
     //MARK: Helper Methods
     func getImage(dict: [String: AnyObject]) {
