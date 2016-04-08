@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ue4-2U-nnW">
-                                <rect key="frame" x="0.0" y="28" width="600" height="523"/>
+                                <rect key="frame" x="0.0" y="30" width="600" height="570"/>
                                 <connections>
                                     <outlet property="delegate" destination="IhM-Np-6W8" id="ppf-dW-bhO"/>
                                 </connections>
@@ -40,9 +40,9 @@
                         <constraints>
                             <constraint firstItem="bBn-4L-pwZ" firstAttribute="leading" secondItem="73H-A0-Hqc" secondAttribute="leading" id="DsD-9a-OKH"/>
                             <constraint firstItem="bBn-4L-pwZ" firstAttribute="top" secondItem="73H-A0-Hqc" secondAttribute="top" id="FLB-Jl-Fb8"/>
-                            <constraint firstItem="Ue4-2U-nnW" firstAttribute="top" secondItem="73H-A0-Hqc" secondAttribute="top" constant="28" id="cKO-mH-SQp"/>
+                            <constraint firstItem="Ue4-2U-nnW" firstAttribute="top" secondItem="73H-A0-Hqc" secondAttribute="top" constant="30" id="cKO-mH-SQp"/>
                             <constraint firstAttribute="trailing" secondItem="Ue4-2U-nnW" secondAttribute="trailing" id="cba-qI-3yi"/>
-                            <constraint firstItem="T2N-ZG-mZu" firstAttribute="top" secondItem="Ue4-2U-nnW" secondAttribute="bottom" constant="49" id="dry-OF-jry"/>
+                            <constraint firstItem="T2N-ZG-mZu" firstAttribute="top" secondItem="Ue4-2U-nnW" secondAttribute="bottom" id="dry-OF-jry"/>
                             <constraint firstItem="Ue4-2U-nnW" firstAttribute="leading" secondItem="73H-A0-Hqc" secondAttribute="leading" id="hcM-jg-kQv"/>
                             <constraint firstAttribute="trailing" secondItem="bBn-4L-pwZ" secondAttribute="trailing" id="mEC-IV-yMu"/>
                         </constraints>

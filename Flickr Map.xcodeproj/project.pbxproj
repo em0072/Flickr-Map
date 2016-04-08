@@ -14,6 +14,8 @@
 		75D740C41CB7C930004AF196 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D740C31CB7C930004AF196 /* MapViewController.swift */; };
 		75D740C61CB7D26C004AF196 /* PhotoAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D740C51CB7D26C004AF196 /* PhotoAnnotation.swift */; };
 		75D740CA1CB7FFA9004AF196 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D740C91CB7FFA9004AF196 /* PhotoViewController.swift */; };
+		75D740CE1CB8394B004AF196 /* MediumProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D740CC1CB8394B004AF196 /* MediumProgressView.swift */; };
+		75D740CF1CB8394B004AF196 /* MediumProgressViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D740CD1CB8394B004AF196 /* MediumProgressViewManager.swift */; };
 		DF84A76359FB025702B37094 /* Pods_Flickr_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A38702D53CBDFD80157AE37 /* Pods_Flickr_Map.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		75D740C31CB7C930004AF196 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		75D740C51CB7D26C004AF196 /* PhotoAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAnnotation.swift; sourceTree = "<group>"; };
 		75D740C91CB7FFA9004AF196 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		75D740CC1CB8394B004AF196 /* MediumProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumProgressView.swift; sourceTree = "<group>"; };
+		75D740CD1CB8394B004AF196 /* MediumProgressViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumProgressViewManager.swift; sourceTree = "<group>"; };
 		F3E0CF7E07CE0303F6CDD741 /* Pods-Flickr Map.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flickr Map.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flickr Map/Pods-Flickr Map.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,18 +78,60 @@
 		75D740A61CB78FCA004AF196 /* Flickr Map */ = {
 			isa = PBXGroup;
 			children = (
-				75D740A71CB78FCA004AF196 /* AppDelegate.swift */,
-				75D740C31CB7C930004AF196 /* MapViewController.swift */,
-				75D740C51CB7D26C004AF196 /* PhotoAnnotation.swift */,
-				75D740C91CB7FFA9004AF196 /* PhotoViewController.swift */,
-				75D740AB1CB78FCA004AF196 /* Main.storyboard */,
+				75D740D21CB8396F004AF196 /* View */,
+				75D740D11CB83965004AF196 /* Controller */,
+				75D740D31CB8397D004AF196 /* Model */,
 				75D740AE1CB78FCA004AF196 /* Assets.xcassets */,
-				75D740B01CB78FCA004AF196 /* LaunchScreen.storyboard */,
-				75D740B31CB78FCA004AF196 /* Info.plist */,
-				75D740BC1CB795F4004AF196 /* Flickr-Bridging-Header.h */,
+				75D740D01CB83951004AF196 /* Support */,
 			);
 			name = "Flickr Map";
 			path = "Flickr Mao";
+			sourceTree = "<group>";
+		};
+		75D740CB1CB8394B004AF196 /* MediumProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				75D740CC1CB8394B004AF196 /* MediumProgressView.swift */,
+				75D740CD1CB8394B004AF196 /* MediumProgressViewManager.swift */,
+			);
+			path = MediumProgressView;
+			sourceTree = "<group>";
+		};
+		75D740D01CB83951004AF196 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				75D740A71CB78FCA004AF196 /* AppDelegate.swift */,
+				75D740B31CB78FCA004AF196 /* Info.plist */,
+				75D740BC1CB795F4004AF196 /* Flickr-Bridging-Header.h */,
+				75D740CB1CB8394B004AF196 /* MediumProgressView */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+		75D740D11CB83965004AF196 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				75D740C91CB7FFA9004AF196 /* PhotoViewController.swift */,
+				75D740C31CB7C930004AF196 /* MapViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		75D740D21CB8396F004AF196 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				75D740AB1CB78FCA004AF196 /* Main.storyboard */,
+				75D740B01CB78FCA004AF196 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		75D740D31CB8397D004AF196 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				75D740C51CB7D26C004AF196 /* PhotoAnnotation.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		7C11EEC3C5FF01A4FFF0245E /* Pods */ = {
@@ -221,6 +267,8 @@
 			files = (
 				75D740C61CB7D26C004AF196 /* PhotoAnnotation.swift in Sources */,
 				75D740CA1CB7FFA9004AF196 /* PhotoViewController.swift in Sources */,
+				75D740CF1CB8394B004AF196 /* MediumProgressViewManager.swift in Sources */,
+				75D740CE1CB8394B004AF196 /* MediumProgressView.swift in Sources */,
 				75D740A81CB78FCA004AF196 /* AppDelegate.swift in Sources */,
 				75D740C41CB7C930004AF196 /* MapViewController.swift in Sources */,
 			);

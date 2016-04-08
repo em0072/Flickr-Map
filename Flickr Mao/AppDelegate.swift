@@ -12,6 +12,7 @@ import SAMCache
 
 let fk = FlickrKit.sharedFlickrKit()
 let cache = SAMCache.sharedCache()
+let progressViewManager = MediumProgressViewManager.sharedInstance
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
