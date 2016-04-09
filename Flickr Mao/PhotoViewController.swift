@@ -28,6 +28,12 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
         self.scrollView.maximumZoomScale = 5.0
         imageView.image = photo
         getImage(photoDictionary)
+        
+        //Add Double Tap
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(PhotoViewController.doubleTap(_:)))
+        doubleTap.numberOfTapsRequired = 2
+        self.view.addGestureRecognizer(doubleTap)
+        
     }
     
     //MARK: ScrollView Delegates
@@ -36,6 +42,8 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
     }
     
     //MARK: Helper Methods
+    
+    // Downloads the image from Flickr
     func getImage(dict: [String: AnyObject]) {
         let url = fk.photoURLForSize(FKPhotoSizeLarge1024, fromPhotoDictionary: dict)
         let urlRequest = NSURLRequest(URL: url)
@@ -59,6 +67,14 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
             })
         })
         task.resume()
+    }
+    
+    func doubleTap(tap: UITapGestureRecognizer) {
+        if self.scrollView.zoomScale > 1 {
+         self.scrollView.setZoomScale(1, animated: true)
+        } else {
+            self.scrollView.setZoomScale(4, animated: true)
+        }
     }
     
     //MARK: IBActions

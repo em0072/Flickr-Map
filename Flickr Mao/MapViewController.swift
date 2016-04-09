@@ -36,6 +36,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
     //MARK: View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Check cache for existing content
         if let photoArrayChache = cache.objectForKey("photoArray") {
             self.photoArray = photoArrayChache as! [[String:AnyObject]]
         }
@@ -66,6 +67,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
     
     //MARK: Map Delegates
     
+    // Create custom annotation view
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         let pin = annotation as! PhotoAnnotation
         let identifier = "MyPin"
@@ -84,6 +86,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
             })
         return pinView
     }
+    
     
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
@@ -172,6 +175,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
         }
     }
 
+    
     func showAlertWithOK(title: String, message: String) {
         let alertController = UIAlertController(title: "No photos", message: "There are no photos for \(self.searchField.text!) key word.\nPlease, try a different word.", preferredStyle: .Alert)
         let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
@@ -182,7 +186,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
         }
     }
     
-    
+    //Get data from Flickr and create map annotation 
     func createAnnotations(photoDictionary: [String : AnyObject]) {
         let url = fk.photoURLForSize(FKPhotoSizeSmall320, fromPhotoDictionary: photoDictionary)
         let urlRequest = NSURLRequest(URL: url)
