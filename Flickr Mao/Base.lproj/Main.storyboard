@@ -52,7 +52,7 @@
                     <connections>
                         <outlet property="mapView" destination="Ue4-2U-nnW" id="56C-M2-tj8"/>
                         <outlet property="searchField" destination="bBn-4L-pwZ" id="Tbk-Lr-cE5"/>
-                        <segue destination="ojw-yY-XCg" kind="presentation" identifier="showPhoto" id="QeI-Ch-3Bc"/>
+                        <segue destination="ojw-yY-XCg" kind="presentation" identifier="showPhoto" modalTransitionStyle="crossDissolve" id="QeI-Ch-3Bc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cnv-gS-Det" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -76,8 +76,10 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pUE-uM-84a">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="pUE-uM-84a" secondAttribute="bottom" id="Gk6-Hr-qFh"/>
                                     <constraint firstItem="pUE-uM-84a" firstAttribute="centerX" secondItem="8xb-IZ-xEn" secondAttribute="centerX" id="bfE-wR-Zu4"/>

@@ -1,0 +1,13 @@
+PODS:
+  - FlickrKit (1.0.7)
+  - SAMCache (0.3.3)
+
+DEPENDENCIES:
+  - FlickrKit
+  - SAMCache
+
+SPEC CHECKSUMS:
+  FlickrKit: 907da468d679233a27d66dd88c6dcd024074b0f0
+  SAMCache: 790b2623a3e087c903daff872c90c248726c4c82
+
+COCOAPODS: 0.39.0
